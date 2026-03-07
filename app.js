@@ -1,8 +1,6 @@
 import express from "express";
-import http from "http";
 
 const app = express();
-const httpServer = http.createServer(app);
 
 /**
  * Middleware:
@@ -26,7 +24,7 @@ app.use((req, res, next) => {
   next();
 });
 
-httpServer.listen(3000, () => {
+app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
 });
 
