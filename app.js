@@ -7,21 +7,35 @@ const app = express();
  * A request will travel all the way through the middleware stack
  */
 
-app.use((req, res, next) => {
-  console.log("Executing First Middleware");
-  next();
+// app.use((req, res, next) => {
+//   console.log("Executing First Middleware");
+//   next();
+// });
+
+// app.use((req, res, next) => {
+//   console.log("Executing Second Middleware");
+//   next();
+// });
+
+// app.use((req, res, next) => {
+//   console.log("Executing Third Middleware");
+//   //   res.send("Hello from Third Middleware");
+//   res.send({ some: "JSON data" });
+//   next();
+// });
+
+/** Handling different URL routes */
+
+app.use("/second", (req, res) => {
+  res.send("<h1>Hello from the second route</h1>");
 });
 
-app.use((req, res, next) => {
-  console.log("Executing Second Middleware");
-  next();
+app.use("/third", (req, res) => {
+  res.send("<h1>Hello from the third route</h1>");
 });
 
-app.use((req, res, next) => {
-  console.log("Executing Third Middleware");
-  //   res.send("Hello from Third Middleware");
-  res.send({ some: "JSON data" });
-  next();
+app.use("/", (req, res) => {
+  res.send("<h1>Hello from the root route</h1>");
 });
 
 app.listen(3000, () => {
