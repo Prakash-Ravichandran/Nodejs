@@ -21,6 +21,8 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log("Executing Third Middleware");
+  //   res.send("Hello from Third Middleware");
+  res.send({ some: "JSON data" });
   next();
 });
 
