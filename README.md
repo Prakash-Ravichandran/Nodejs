@@ -4,15 +4,16 @@ An intro to Express JS
 
 
 
-### Express internal working
+### Express send() internal working
 
 - internal working send() in express [ref](https://github.com/expressjs/express/blob/e5099198b292a565f8583d70caf12d7afed3607f/lib/response.js#L125)
 
 - send() by itself tries identify the type of data and set its content-type.
 
 
+### Match different Routes
 
-
+- its better to keep the default '/' home route atlast of all app.use() usages.
 
 ### git email configs
 Step to setup different email for different projects
