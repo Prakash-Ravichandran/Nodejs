@@ -2,7 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(bodyParser.urlencoded());
 
 /**
  * Middleware:
@@ -47,18 +46,15 @@ app.use(bodyParser.urlencoded());
 
 
 /** Body Parser */
+app.use(bodyParser.urlencoded());
 
-app.use("/add-product", (req, res) => {
+app.get("/add-product", (req, res) => {
   res.send("<form action='/save-product' method='POST'> <input type='text' name='title' placeholder='Enter product name'/> <input type='submit' value='Save Product'/> </form>");
 });
 
-app.use("/save-product", (req, res) => {
+app.post("/save-product", (req, res) => {
   console.log("Received product data:", req.body); // Received product data: { title: 'biscuit' }
   res.send(`<h1>Product saved successfully - ${req.body.title}</h1>`);
-});
-
-app.use("/", (req, res) => {
-  res.send("<h1>Body Parser Demo</h1>");
 });
 
 app.listen(3000, () => {

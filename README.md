@@ -23,6 +23,10 @@ An intro to Express JS
 app.use(bodyParser.urlencoded())
 ```
 
+### Handle only post request 
+
+- [commit](https://github.com/Prakash-Ravichandran/Nodejs/commit/6794cbbe23844807ecd1dc6fed4872f0fc0ed1e5)
+
 
 ### git email configs
 Step to setup different email for different projects
