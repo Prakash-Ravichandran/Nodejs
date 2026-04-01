@@ -15,6 +15,15 @@ An intro to Express JS
 
 - its better to keep the default '/' home route atlast of all app.use() usages.
 
+### parsing data from request
+
+- Express.js by default by default/internALLY doesn't convert the req,res data to their given format. We have to do it by below. (timestamp: 45.00 - 50.00)
+
+```c.js
+app.use(bodyParser.urlencoded())
+```
+
+
 ### git email configs
 Step to setup different email for different projects
 

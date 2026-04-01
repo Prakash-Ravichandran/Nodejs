@@ -1,6 +1,8 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 const app = express();
+app.use(bodyParser.urlencoded());
 
 /**
  * Middleware:
@@ -26,16 +28,37 @@ const app = express();
 
 /** Handling different URL routes */
 
-app.use("/second", (req, res) => {
-  res.send("<h1>Hello from the second route</h1>");
+// app.use("/second", (req, res) => {
+//   res.send("<h1>Hello from the second route</h1>");
+// });
+
+// app.use("/third", (req, res) => {
+//   res.send("<h1>Hello from the third route</h1>");
+// });
+
+// app.use("/", (req, res) => {
+//   res.send("<h1>Hello from the root route</h1>");
+// });
+
+// app.listen(3000, () => {
+//   console.log("Server is running on http://localhost:3000");
+// });
+
+
+
+/** Body Parser */
+
+app.use("/add-product", (req, res) => {
+  res.send("<form action='/save-product' method='POST'> <input type='text' name='title' placeholder='Enter product name'/> <input type='submit' value='Save Product'/> </form>");
 });
 
-app.use("/third", (req, res) => {
-  res.send("<h1>Hello from the third route</h1>");
+app.use("/save-product", (req, res) => {
+  console.log("Received product data:", req.body); // Received product data: { title: 'biscuit' }
+  res.send(`<h1>Product saved successfully - ${req.body.title}</h1>`);
 });
 
 app.use("/", (req, res) => {
-  res.send("<h1>Hello from the root route</h1>");
+  res.send("<h1>Body Parser Demo</h1>");
 });
 
 app.listen(3000, () => {
