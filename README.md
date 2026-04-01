@@ -27,6 +27,10 @@ app.use(bodyParser.urlencoded())
 
 - [commit](https://github.com/Prakash-Ravichandran/Nodejs/commit/6794cbbe23844807ecd1dc6fed4872f0fc0ed1e5)
 
+## Using Express Router
+
+`app.use('/')` is a middleware function that matches all the routes and executes its handlers for al routes. So this is a middleware function, not a router function `app.get()` or `app.post()`. (timestamp - 51.00)
+
 
 ### git email configs
 Step to setup different email for different projects

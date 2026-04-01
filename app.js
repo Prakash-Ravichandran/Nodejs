@@ -48,6 +48,10 @@ const app = express();
 /** Body Parser */
 app.use(bodyParser.urlencoded());
 
+app.get('/', (req, res) => {
+   res.send('<h2> Add a product using the form at <a href="/add-product">/add-product</a></h2>');
+});
+
 app.get("/add-product", (req, res) => {
   res.send("<form action='/save-product' method='POST'> <input type='text' name='title' placeholder='Enter product name'/> <input type='submit' value='Save Product'/> </form>");
 });
