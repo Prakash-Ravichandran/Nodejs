@@ -1,5 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
+import adminRoutes from "./routes/admin.js";
+import shopRoutes from "./routes/shop.js";
 
 const app = express();
 
@@ -46,23 +48,34 @@ const app = express();
 
 
 /** Body Parser */
+// app.use(bodyParser.urlencoded());
+
+// app.get('/', (req, res) => {
+//    res.send('<h2> Add a product using the form at <a href="/add-product">/add-product</a></h2>');
+// });
+
+// app.get("/add-product", (req, res) => {
+//   res.send("<form action='/save-product' method='POST'> <input type='text' name='title' placeholder='Enter product name'/> <input type='submit' value='Save Product'/> </form>");
+// });
+
+// app.post("/save-product", (req, res) => {
+//   console.log("Received product data:", req.body); // Received product data: { title: 'biscuit' }
+//   res.send(`<h1>Product saved successfully - ${req.body.title}</h1>`);
+// });
+
+// app.listen(3000, () => {
+//   console.log("Server is running on http://localhost:3000");
+// });
+
+
+/** Using Express Router */
+
+app.use(adminRoutes);
+app.use(shopRoutes);
 app.use(bodyParser.urlencoded());
 
-app.get('/', (req, res) => {
-   res.send('<h2> Add a product using the form at <a href="/add-product">/add-product</a></h2>');
-});
-
-app.get("/add-product", (req, res) => {
-  res.send("<form action='/save-product' method='POST'> <input type='text' name='title' placeholder='Enter product name'/> <input type='submit' value='Save Product'/> </form>");
-});
-
-app.post("/save-product", (req, res) => {
-  console.log("Received product data:", req.body); // Received product data: { title: 'biscuit' }
-  res.send(`<h1>Product saved successfully - ${req.body.title}</h1>`);
-});
-
 app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+  console.log("Admin routes example server is running on http://localhost:3000");
 });
 
 /**
